@@ -19,16 +19,16 @@ import java.security.Principal;
 @Controller
 public class NewProjectController {
     @Autowired
-    NewProjectProcessor nbProcessor;
+    NewProjectProcessor npProcessor;
 
     @Autowired
     SecurityProcessor securityProcessor;
 
     @RequestMapping(value = "users/{userId}/newProject", method = RequestMethod.POST)
     public String processForm(@PathVariable("userId") Integer userId,
-                              NewProjectForm addBookForm, Principal principal, ModelMap modelMap) {
+                              NewProjectForm addProjectForm, Principal principal, ModelMap modelMap) {
         securityProcessor.identifyViewer(principal, modelMap);
-        Project newProject = nbProcessor.addBook(addBookForm, userId);
+        Project newProject = npProcessor.addBook(addProjectForm, userId);
         if (newProject == null)
             return "newProject";
         else
