@@ -40,7 +40,7 @@ public class UserPageController {
     }
 
     @RequestMapping(value = "/{id}/newProject", method = RequestMethod.GET)
-    public String giveNewBookPage(@PathVariable("id") Integer id,
+    public String giveNewProjectPage(@PathVariable("id") Integer id,
                                   ModelMap modelMap, Principal principal) {
         securityProcessor.identifyViewer(principal, modelMap);
         return "newProject";
