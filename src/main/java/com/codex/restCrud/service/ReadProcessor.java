@@ -24,10 +24,10 @@ public class ReadProcessor {
     @Autowired
     private SecurityProcessor securityProcessor;
 
-    public String readBookPage(Principal principal, ModelMap modelMap,
-                               Integer bookId) {
+    public String readProjectPage(Principal principal, ModelMap modelMap,
+                               Integer projectId) {
         securityProcessor.identifyViewer(principal, modelMap);
-        Project project = projectDao.getEagerById(bookId);
+        Project project = projectDao.getEagerById(projectId);
         modelMap.addAttribute("project", project);
         return "read";
     }
