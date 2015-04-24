@@ -20,9 +20,9 @@ public class ReadController {
     ReadProcessor readProcessor;
 
     @RequestMapping(value = "/{projectId}", method = RequestMethod.GET)
-    public String readBook(@PathVariable("projectId") Integer bookId,
+    public String readProject(@PathVariable("projectId") Integer projectId,
                            ModelMap modelMap, Principal principal) {
-        return readProcessor.readBookPage(principal, modelMap, bookId);
+        return readProcessor.readProjectPage(principal, modelMap, projectId);
     }
 
 }
