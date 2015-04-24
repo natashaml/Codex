@@ -120,24 +120,17 @@ public class EditProjectProcessor {
 
         } else if (action.equals("addTask")) {
             addTask(project);
-        } else if (action.equals("redactor")) {
-            return redactorPicture(modelMap, principal, project, userId, projectId);
-        }
+        } 
         return "redirect:/users/" + userId + "/" + projectId;
     }
 
-    private void setBook(ModelMap modelMap, Principal principal, Project project) {
+    private void setProject(ModelMap modelMap, Principal principal, Project project) {
         if (project != null) {
             modelMap.addAttribute("user",
                     userDao.getLazyByName(principal.getName()));
             modelMap.addAttribute("project", project);
         }
 
-    }
-
-    private String redactorPicture(ModelMap modelMap, Principal principal, Project project, Integer userId, Integer bookId) {
-        setBook(modelMap, principal, project);
-        return "redactor";
     }
 
     private Task saveTask(Integer id, EditTaskForm taskForm) {
