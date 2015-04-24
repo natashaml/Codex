@@ -22,21 +22,12 @@ public class NewProjectProcessor {
     @Autowired
     CommentDao commentDao;
 
-    public Project addBook(NewProjectForm newProjectForm, Integer userId) {
+    public Project addProject(NewProjectForm newProjectForm, Integer userId) {
         Project project = new Project();
 
         project.setName(newProjectForm.getTitle());
-        //project.setCreative(newProjectForm.getCreative());
         project.setSynopsis(newProjectForm.getSynopsis());
-        //project.setPicture(newProjectForm.getPicture());
-
-		/*List<String> tagNames = searchProcessor.getKeyWords(newProjectForm
-                .getComments());
-		List<Comment> tags = tagDao.addComments(commentNames);
-		//project.setComments(tags);  */
-
         project.setUser(userDao.getLazyById(userId));
-        //project.setVersion(1);
         project.setLastModified(System.currentTimeMillis());
 
         return projectDao.addProject(project);
