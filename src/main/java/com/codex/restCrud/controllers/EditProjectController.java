@@ -30,16 +30,6 @@ public class EditProjectController {
                 action);
     }
 
-	/*@RequestMapping(value = "/redactor/{userId}/{bookId}")
-	public String getRedactorPage(@PathVariable("userId") Integer userId,
-			@PathVariable("bookId") Integer bookId, ModelMap modelMap,
-			@RequestParam(value = "action", required = false) String action,
-			Principal principal)
-	{
-		return ebProcessor.getEditProjectPage(principal, userId, bookId, modelMap,
-				action);
-	} */
-
     @RequestMapping(value = "/users/{userId}/{projectId}/{taskId}", method = RequestMethod.POST)
     public String saveTask(@PathVariable("userId") Integer userId,
                            @PathVariable("projectId") Integer projectId,
